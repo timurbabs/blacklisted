@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: php
+  labels:
+    io.kompose.service: php
+  namespace: default
+data:
+  SLAVE_HOST: "{{ include "postgresql.readReplica.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local"
+  USER: "{{ include "postgresql.username" . }}"
+  PASS: "{{ include "postgresql.password" . }}"
+  PRIMARY_HOST: "{{ include "postgresql.primary.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local"
+  DATABASE: "{{ include "postgresql.database" . }}"

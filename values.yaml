@@ -1,0 +1,23 @@
+auth:
+  username: 'root'
+  password: 'root'
+  database: 'blacklistdb'
+  replicationUsername: 'repl_user'
+  replicationPassword: 'repl_password'
+
+primary:
+  initdb:
+    scripts:
+      table.sql: |
+          CREATE TABLE blacklisted (
+              ip CHAR(15),
+              date_ip DATE,
+              PRIMARY KEY (ip)
+          );
+    user: 'root'
+    password: 'root'
+
+architecture: replication
+
+readReplicas:
+  replicaCount: 1
