@@ -1,0 +1,29 @@
+annotations:
+  category: Database
+name: blacklisted
+description: PostgreSQL and PHP app with ingress.
+engine: gotpl
+version: 0.0.1
+apiVersion: v2
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    version: 1.x.x
+keywords:
+  - postgresql
+  - postgres
+  - database
+  - sql
+  - replication
+  - cluster
+  - php
+maintainers:
+  - name: Timur
+    url: https://github.com/timurbabs
+  - email: timurbabs@gmail.com
+    name: timurbabs
+sources:
+  - https://github.com/bitnami/bitnami-docker-postgresql
+  - https://www.postgresql.org/
+  - https://github.com/bitnami/charts
+home: https://github.com/timurbabs/blacklisted

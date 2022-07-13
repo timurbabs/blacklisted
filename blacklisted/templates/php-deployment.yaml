@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    php: php
+  name: php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      php: php
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        php: php
+    spec:
+      containers:
+        - image: timurbabs/php:v5
+          name: php
+          envFrom:
+          - configMapRef:
+              name: php
+          ports:
+            - containerPort: 8000
+          resources: {}
+      restartPolicy: Always
+status: {}
