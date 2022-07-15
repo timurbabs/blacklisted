@@ -1,0 +1,24 @@
+apiVersion: v2
+name: blacklisted
+description: PHP app with PostgreSQL and ingress
+version: 0.0.1
+keywords:
+  - postgresql
+  - php
+  - replication
+  - blacklist
+home: https://github.com/timurbabs/blacklisted
+sources:
+  - https://github.com/bitnami/charts
+  - https://github.com/bitnami/bitnami-docker-postgresql
+maintainers:
+  - name: Timur Baburin
+    email: timurbabs@gmail.com
+    url: https://github.com/timurbabs
+dependencies:
+  - name: postgresql
+    version: 11.6.16
+    repository: https://charts.bitnami.com/bitnami
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    version: 1.16.0

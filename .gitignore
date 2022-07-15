@@ -1,1 +1,3 @@
-blacklisted/charts
+# Helm files
+chart/charts
+chart/Chart.lock

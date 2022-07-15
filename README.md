@@ -1,3 +1,3 @@
-# PostgreSQL with PHP application
+# blacklisted
 
-A [PHP code](./php) using slim microframework and a Kubernetes [Helm Chart](./blacklisted/) for app deployment.
+A [PHP code](./php) using slim microframework and a [Helm Chart](./blacklisted/) for app deployment.

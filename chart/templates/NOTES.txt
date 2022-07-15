@@ -1,0 +1,16 @@
+Access the PHP application:
+
+Since the application is exposed via a NodePort service, you can access it with:
+
+  minikube service php
+
+Or manually:
+
+  1. Get your Minikube IP:
+     minikube ip
+
+  2. Get the exposed NodePort:
+     kubectl get svc php
+
+  3. Then open the following URL in your browser:
+     http://<minikube-ip>:<node-port>/?n=5

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php
+  labels:
+    app: php
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+        - name: php
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: DATABASE
+              value: {{ .Values.postgresql.auth.database | quote }}
+            - name: USER
+              value: {{ .Values.postgresql.auth.username | quote }}
+            - name: PASS
+              value: {{ .Values.postgresql.auth.password | quote }}
+            - name: PRIMARY_HOST
+              value: {{ include "blacklisted.primary.fullname" . }}
+            - name: SLAVE_HOST
+              value: {{ include "blacklisted.read.fullname" . }}
+          ports:
+            - containerPort: 8000
+
